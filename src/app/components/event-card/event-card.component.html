@@ -25,7 +25,7 @@
                 </div>
                 <div *ngIf="setRatingSystem && (isLoggedIn$ | async) && (currentUser$ | async)?.username != event.userName">
                     <h4>
-                        <ngb-rating [(rate)]="selected" (hover)="selected=$event" [readonly]="readonly"></ngb-rating>
+                        <!--ngb-rating [(rate)]="selected" (hover)="selected=$event" [readonly]="readonly"></ngb-rating-->
                     </h4>
                     <pre>Értékelés: <b>{{selected}}</b></pre>
                     <button class="btn btn-secondary" type="button" (click)="sendTheRate()">Elküldöm</button>
