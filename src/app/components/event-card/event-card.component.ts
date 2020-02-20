@@ -22,7 +22,7 @@ export class EventCardComponent implements OnInit {
   loading: boolean;
   setRatingSystem: boolean;
   selected = 0;
-  //comments: Comments;
+  readonly: boolean;
   currentUser$: BehaviorSubject<User>;
 
   @Input()
