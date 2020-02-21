@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="p-2">
-                <div *ngIf="!setRatingSystem && event.pastEvent">
+                <div *ngIf="!setRatingSystem && event.active">
                     <h4>
                         <ngb-rating class="align-self-center" [(rate)]="event.rating"></ngb-rating>
                     </h4>
