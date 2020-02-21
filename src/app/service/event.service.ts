@@ -99,7 +99,7 @@ export class EventService {
 
   public sendRatingEvent(eventId:number, rated: number): Observable<Response>{
     return this.http.post<Response>(
-      this.SERVER_URL + '/events/rate/'+ eventId +'/' + rated , {withCredentials: true})  
+      this.SERVER_URL + '/events/rate/'+ eventId +'/' + rated, {}, {withCredentials: true})  
   }
 
 }
