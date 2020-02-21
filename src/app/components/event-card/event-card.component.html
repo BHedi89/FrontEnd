@@ -48,8 +48,8 @@
                         {{event.categoryName}}</small></p>
                 <h5>Jelentkezők száma: {{event.numberOfParticipants}}/{{event.maxNumberOfPeople}} fő</h5>
                 <hr>
-                <div *ngIf="isLoggedIn$ | async">
-                    <button *ngIf="event.pastEvent == false " type="button" class="btn btn-primary btn-lg btn-block"
+                <div>
+                    <button *ngIf="event.pastEvent == false && (isLoggedIn$ | async)" type="button" class="btn btn-primary btn-lg btn-block"
                         (click)='subscribeEvent()' [disabled]="loading">
                         <span *ngIf="event.registeredForEvent">Leiratkozás</span>
                         <span *ngIf="!event.registeredForEvent">Feliratkozás</span>
