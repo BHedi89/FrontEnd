@@ -16,5 +16,5 @@ export interface Event {
     registeredForEvent?: boolean;
     comments?: Comments[];
     rating?:number;
-    pastEvent?:boolean;
+    active?:boolean;
 }

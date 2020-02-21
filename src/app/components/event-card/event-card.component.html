@@ -49,16 +49,20 @@
                 <h5>Jelentkezők száma: {{event.numberOfParticipants}}/{{event.maxNumberOfPeople}} fő</h5>
                 <hr>
                 <div>
-                    <button *ngIf="event.pastEvent == false && (isLoggedIn$ | async)" type="button" class="btn btn-primary btn-lg btn-block"
-                        (click)='subscribeEvent()' [disabled]="loading">
-                        <span *ngIf="event.registeredForEvent">Leiratkozás</span>
-                        <span *ngIf="!event.registeredForEvent">Feliratkozás</span>
-                    </button>
-                    <button *ngIf="event.pastEvent == true && (isLoggedIn$ | async) && (currentUser$ | async)?.username != event.userName" type="button" class="btn btn-primary btn-lg btn-block"
-                        (click)='swapRating()' [disabled]="loading">
-                        <span *ngIf="!setRatingSystem">Hány csillagra értékeled az eventet?</span>
-                        <span *ngIf="setRatingSystem">Kattints a csillagora az értékeléshez!</span>
-                    </button>
+                    {{ event.pastEvent }}
+                    <p class="text-center" *ngIf="! (isLoggedIn$ | async)">Eseményre való jelentkezéshez jelentkezzen be</p>
+                    <div *ngIf="isLoggedIn$ | async">
+                        <button *ngIf="event.active" type="button" class="btn btn-primary btn-lg btn-block mb-2"
+                            (click)='subscribeEvent()' [disabled]="loading">
+                            <span *ngIf="event.registeredForEvent">Leiratkozás</span>
+                            <span *ngIf="!event.registeredForEvent">Feliratkozás</span>
+                        </button>
+                        <button *ngIf="!event.active && (currentUser$ | async)?.username != event.userName" type="button" class="btn btn-primary btn-lg btn-block"
+                            (click)='swapRating()' [disabled]="loading">
+                            <span *ngIf="!setRatingSystem">Hány csillagra értékeled az eventet?</span>
+                            <span *ngIf="setRatingSystem">Kattints a csillagora az értékeléshez!</span>
+                        </button>
+                    </div>
                     <button type="button" class="btn btn-dark btn-lg btn-block" data-toggle="collapse"
                         attr.data-target="#collapseExample-{{event.id}}" aria-expanded="false"
                         aria-controls="collapseExample">Hozzászólás</button>
