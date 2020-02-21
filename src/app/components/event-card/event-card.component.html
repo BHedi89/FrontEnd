@@ -23,7 +23,7 @@
                     </h4>
                     <pre>Értékelés: <b>{{event.rating}}</b></pre>
                 </div>
-                <div *ngIf="setRatingSystem && (isLoggedIn$ | async) && (currentUser$ | async)?.username != event.userName">
+                <div *ngIf="setRatingSystem && (isLoggedIn$ | async)">
                     <h4>
                         <ngb-rating [(rate)]="selected" (hover)="selected=$event" [readonly]="readonly"></ngb-rating>
                     </h4>
