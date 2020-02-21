@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="p-2">
-                <div *ngIf="!setRatingSystem && event.active">
+                <div *ngIf="!setRatingSystem && !event.active">
                     <h4>
                         <ngb-rating class="align-self-center" [(rate)]="event.rating"></ngb-rating>
                     </h4>
@@ -56,7 +56,7 @@
                             <span *ngIf="event.registeredForEvent">Leiratkozás</span>
                             <span *ngIf="!event.registeredForEvent">Feliratkozás</span>
                         </button>
-                        <button *ngIf="!event.active && (currentUser$ | async)?.username != event.userName" type="button" class="btn btn-primary btn-lg btn-block"
+                        <button *ngIf="!event.active && (currentUser$ | async)?.username != event.userName" type="button" class="btn btn-primary btn-lg btn-block mb-2"
                             (click)='swapRating()' [disabled]="loading">
                             <span *ngIf="!setRatingSystem">Hány csillagra értékeled az eventet?</span>
                             <span *ngIf="setRatingSystem">Kattints a csillagora az értékeléshez!</span>
