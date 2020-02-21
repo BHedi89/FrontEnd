@@ -62,7 +62,7 @@
                     <button type="button" class="btn btn-dark btn-lg btn-block" data-toggle="collapse"
                         attr.data-target="#collapseExample-{{event.id}}" aria-expanded="false"
                         aria-controls="collapseExample">Hozzászólás</button>
-                    <div class="collapse" id="collapseExample-{{event.id}}">
+                    <div class="collapse" id="collapseExample-{{event.id}}" >
                         <div class="card shadow bg-secondary">
                             <div class="card-body">
                                 <p *ngFor="let c of event.comments"><b>{{c.from}}:</b> {{c.text}}</p>
