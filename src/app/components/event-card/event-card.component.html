@@ -10,7 +10,7 @@
             <div *ngIf="(isLoggedIn$ | async) && (currentUser$ | async)?.username == event.userName">
                 <div class="p-2" *ngIf="route.snapshot.data?.isEventList">
                     <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
-                    <button class="btn btn-secondary" (click)="fileInput.click()">Kép feltöltése</button>
+                    <button class="btn btn-secondary picUpload" (click)="fileInput.click()">Kép feltöltése</button>
                 </div>
                 <div class="p-2" *ngIf="(isLoggedIn$ | async) && (currentUser$ | async)?.username == event.userName">
                     <button type="button" class="btn btn-warning" (click)="modifyEvent()">Esemény módosítása</button>
