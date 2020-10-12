@@ -10,7 +10,21 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('eventorganizer app is running!');
+    expect(page.getTitleText()).toEqual('Szeretnél\núj embereket\nmegismerni?');
+  });
+
+  it('should modify an event', async () =>{
+    const testEvent = 'Some test event title';
+    page.navigateTo();
+    const events = await page.getEventTitle();
+    events[0] = testEvent;
+    (await page.getEditButton()).click();
+    page.getModalTitleInput().click();
+    page.getModalTitleInput().sendKeys(testEvent);
+    page.getModalSaveButton().click();
+    const newEvent = await page.getEventTitle();
+    expect(events).toEqual(newEvent);
+
   });
 
   afterEach(async () => {
